@@ -40,3 +40,4 @@ def getIoSwoCalculatedValue(host,io_id) -> str:
     response = requests.get(request)
     _LOGGER.debug("getIoSwoCalculatedValue response: " +  response.text)
     return response.text
+    
