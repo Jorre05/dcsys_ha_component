@@ -36,8 +36,13 @@ class DcsysKnop(ButtonEntity):
         self._attr_name = name
 
     async def async_press(self) -> None:
-        persistent_notification.async_create(self.hass, "DCSys pressed", title="Button")
-
+        _LOGGER.info("async_press " + self._attr_name + " io:" + self._dcsys_seq_id)
+        await self.hass.async_add_executor_job(self.doUpdate)
+        
+    def doUpdate(self) -> None:
+        global hostname
+        execSequence(hostname, self._dcsys_seq_id,"")
+            
     @property
     def device_info(self):
         _LOGGER.info("device_info " + self._attr_unique_id)
