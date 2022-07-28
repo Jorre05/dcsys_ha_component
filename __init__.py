@@ -77,11 +77,42 @@ async def async_setup_entry(hass, entry):
     dcsys_schakelaars.append(DcsysSchakelaar("Schauffage master"  ,"10001"))
     dcsys_schakelaars.append(DcsysSchakelaar("Stroom balanceren"  ,"20070"))
     
+    # Radiators, status wordt in Esphome toestellen gebruikt.
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator berging"    ,"12001"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator badkamer"   ,"12002"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator slaapkamer" ,"12003"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Tibo"       ,"12004"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator keuken"     ,"12005"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator living"     ,"12006"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Rani"       ,"12007"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Nele"       ,"12008"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator bureau"     ,"12009"))
+    
     #                               Naam                     ,seq_id
     dcsys_knoppen.append(DcsysKnop("Rolluiken omhoog"  ,"210"))
     dcsys_knoppen.append(DcsysKnop("Rolluiken omlaag"  ,"209"))
     dcsys_knoppen.append(DcsysKnop("Alle lichten uit" ,"10"))
     dcsys_knoppen.append(DcsysKnop("Living sfeer 1" ,"4010"))
+    
+    # Radiator commando's, status wordt vanuit Esphome toestellen aangestuurd
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator berging af"     ,"3009"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator berging aan"    ,"3010"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator badkamer af"    ,"3013"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator badkamer aan"   ,"3014"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator slaapkamer af"  ,"3001"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator slaapkamer aan" ,"3002"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Tibo af"        ,"3011"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Tibo aan"       ,"3012"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator keuken af"      ,"3005"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator keuken aan"     ,"3006"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator living af"      ,"3007"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator living aan"     ,"3008"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Rani af"        ,"3017"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Rani aan"       ,"3018"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Nele af"        ,"3015"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator Nele aan"       ,"3016"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator bureau af"      ,"3003"))
+    dcsys_schakelaars.append(DcsysSchakelaar("Radiator bureau aan"     ,"3004"))
 
     hass.async_add_job(hass.config_entries.async_forward_entry_setup(entry, "climate"))
     hass.async_add_job(hass.config_entries.async_forward_entry_setup(entry, "light"))
