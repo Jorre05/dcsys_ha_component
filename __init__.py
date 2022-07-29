@@ -60,10 +60,10 @@ async def async_setup_entry(hass, entry):
     dcsys_thermostaten.append(DcsysThermostaat("Temperatuur berging"   , "11006", "12001", False, 5, 30, 0.1, "2006"))
     dcsys_thermostaten.append(DcsysThermostaat("Temperatuur badkamer"  , "11008", "12002", False, 5, 30, 0.1, "2008"))
     dcsys_thermostaten.append(DcsysThermostaat("Temperatuur slaapkamer", "11001", "12003", False, 5, 30, 0.1, "2001"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur bureau"    , "11002", "12009", False, 5, 30, 0.1, "2002"))
     dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Tibo"      , "11007", "12004", False, 5, 30, 0.1, "2007"))
     dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Rani"      , "11010", "12008", False, 5, 30, 0.1, "2009"))
     dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Nele"      , "11009", "12007", False, 5, 30, 0.1, "2010"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur bureau"    , "11002", "12009", False, 5, 30, 0.1, "2002"))
 
     #                                           Naam      , io_id  , devoce_class
     dcsys_sensors.append(DcsysSensor("Temperatuur buiten" , "11012", SensorDeviceClass.TEMPERATURE))
@@ -89,10 +89,13 @@ async def async_setup_entry(hass, entry):
     dcsys_schakelaars.append(DcsysSchakelaar("Radiator bureau"     ,"12009"))
     
     #                               Naam                     ,seq_id
-    dcsys_knoppen.append(DcsysKnop("Rolluiken omhoog"  ,"210"))
-    dcsys_knoppen.append(DcsysKnop("Rolluiken omlaag"  ,"209"))
-    dcsys_knoppen.append(DcsysKnop("Alle lichten uit" ,"10"))
-    dcsys_knoppen.append(DcsysKnop("Living sfeer 1" ,"4010"))
+    dcsys_knoppen.append(DcsysKnop("Rolluiken omhoog" , "210"))
+    dcsys_knoppen.append(DcsysKnop("Rolluiken omlaag" , "209"))
+    dcsys_knoppen.append(DcsysKnop("Alle lichten uit" ,  "10"))
+    dcsys_knoppen.append(DcsysKnop("Living sfeer 1"   ,"4010"))
+    dcsys_knoppen.append(DcsysKnop("Toeter"           ,"1014"))
+    dcsys_knoppen.append(DcsysKnop("Achterdeur dicht" ,"1015"))
+    dcsys_knoppen.append(DcsysKnop("Achterdeur open"  ,"1016"))
     
     # Radiator commando's, status wordt vanuit Esphome toestellen aangestuurd
     dcsys_knoppen.append(DcsysKnop("Radiator berging af"     ,"3009"))
