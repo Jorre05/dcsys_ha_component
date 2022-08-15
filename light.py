@@ -100,8 +100,8 @@ class DcsysLicht(LightEntity):
 
         if ATTR_BRIGHTNESS in kwargs:
             self._brightness = kwargs[ATTR_BRIGHTNESS]
-            
-        if (self._dcsys_max) <= 1:
+                
+        if (self._dcsys_max <= 1 or self._brightness == 0):
             self._brightness = 255
         
         await self.hass.async_add_executor_job(self.doActon)

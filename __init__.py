@@ -55,18 +55,20 @@ async def async_setup_entry(hass, entry):
     dcsys_lichten.append(DcsysLicht("Licht hal boven"       , "3101", False, 0, 1, 1))
 
     #                                           Naam                    ,io_id   ,rad_id ,status ,minimum,maximum,step,set_seq
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur keuken"    , "11003", "12005", False, 5, 30, 0.1, "2003"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur living"    , "11004", "12006", False, 5, 30, 0.1, "2004"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur berging"   , "11006", "12001", False, 5, 30, 0.1, "2006"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur badkamer"  , "11008", "12002", False, 5, 30, 0.1, "2008"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur slaapkamer", "11001", "12003", False, 5, 30, 0.1, "2001"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Tibo"      , "11007", "12004", False, 5, 30, 0.1, "2007"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Rani"      , "11010", "12008", False, 5, 30, 0.1, "2009"))
-    dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Nele"      , "11009", "12007", False, 5, 30, 0.1, "2010"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur keuken"    , "11003", "12005", False, 5, 30, 0.1, "2003"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur living"    , "11004", "12006", False, 5, 30, 0.1, "2004"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur berging"   , "11006", "12001", False, 5, 30, 0.1, "2006"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur badkamer"  , "11008", "12002", False, 5, 30, 0.1, "2008"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur slaapkamer", "11001", "12003", False, 5, 30, 0.1, "2001"))
+    dcsys_thermostaten.append(DcsysThermostaat("Thermostaat Tibo"      , "11007", "12004", False, 5, 30, 0.1, "2007"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Rani"      , "11010", "12008", False, 5, 30, 0.1, "2009"))
+    #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur Nele"      , "11009", "12007", False, 5, 30, 0.1, "2010"))
     #dcsys_thermostaten.append(DcsysThermostaat("Temperatuur bureau"    , "11002", "12009", False, 5, 30, 0.1, "2002"))
 
     #                                           Naam      , io_id  , devoce_class
     dcsys_sensors.append(DcsysSensor("Temperatuur buiten" , "11012", SensorDeviceClass.TEMPERATURE))
+    dcsys_sensors.append(DcsysSensor("Temperatuur Tibo"   , "11007", SensorDeviceClass.TEMPERATURE))
+    
     dcsys_sensors.append(DcsysSensor("Licht buiten"       , "11011", SensorDeviceClass.ILLUMINANCE))
     #dcsys_sensors.append(DcsysSensor("Electriciteit"      , "11011", SensorDeviceClass.ILLUMINANCE))
 
@@ -96,6 +98,7 @@ async def async_setup_entry(hass, entry):
     dcsys_knoppen.append(DcsysKnop("Toeter"           ,"1014"))
     dcsys_knoppen.append(DcsysKnop("Achterdeur dicht" ,"1015"))
     dcsys_knoppen.append(DcsysKnop("Achterdeur open"  ,"1016"))
+    dcsys_knoppen.append(DcsysKnop("Nacht"            ,"2082"))
     
     # Radiator commando's, status wordt vanuit Esphome toestellen aangestuurd
     dcsys_knoppen.append(DcsysKnop("Radiator berging af"     ,"3009"))
